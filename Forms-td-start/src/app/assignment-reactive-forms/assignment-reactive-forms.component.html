@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <form [formGroup]="assignmentForm" (ngSubmit)="letsSubmiteForm()">
+                <div>
+                    <div class="form-group">
+                        <label for="projectName">Project Name</label>
+                        <input type="text" id="projectName" formControlName="projectName" class="form-control">
+                        <span *ngIf="!assignmentForm.get('projectName').valid && assignmentForm.get('projectName').touched" class="help-block">Please enter a project name !!!</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">email</label>
+                        <input type="text" id="email" formControlName="email" class="form-control">
+                        <span *ngIf="!assignmentForm.get('email').valid && assignmentForm.get('email').touched">please
+                            enter a valid email!!!</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectStatus">Select project status</label>
+                    <select id="projectStatus" class="form-control" name="projectStatus" formControlName="projectStatus">
+                        <option *ngFor="let pjStatus of projectStatus" [value]="pjStatus">{{pjStatus}}</option>
+                    </select>
+                </div>
+
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
